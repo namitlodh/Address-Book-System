@@ -11,26 +11,44 @@ namespace Address_Book_System
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book Program");
-            AddressBook obj1= new AddressBook();
-            obj1.firstname = "Namit";
-            obj1.lastname = "Lodh";
-            obj1.address = "room no-624 malligai";
-            obj1.cityname = "chennai";
-            obj1.state = "Tamil Nadu";
-            obj1.phonenumber = "2513290657";
-            obj1.zipcode = "123456";
-            obj1.email = "abc@gmail.com";
 
-            Console.WriteLine(obj1.firstname);
-            Console.WriteLine(obj1.lastname);
-            Console.WriteLine(obj1.address);
-            Console.WriteLine(obj1.cityname);
-            Console.WriteLine(obj1.state);
-            Console.WriteLine(obj1.phonenumber);
-            Console.WriteLine(obj1.zipcode);
-            Console.WriteLine(obj1.email);
+            AddressBook obj1 = new AddressBook();
+
+            Console.Write("Enter First Name: ");
+            obj1.firstname = Console.ReadLine();
+
+            Console.Write("Enter Last Name: ");
+            obj1.lastname = Console.ReadLine();
+
+            Console.Write("Enter Address: ");
+            obj1.address = Console.ReadLine();
+
+            Console.Write("Enter City: ");
+            obj1.cityname = Console.ReadLine();
+
+            Console.Write("Enter State: ");
+            obj1.state = Console.ReadLine();
+
+            Console.Write("Enter Phone Number: ");
+            obj1.phonenumber = Console.ReadLine();
+
+            Console.Write("Enter Zip Code: ");
+            obj1.zipcode = Console.ReadLine();
+
+            Console.Write("Enter Email: ");
+            obj1.email = Console.ReadLine();
+
+            Console.WriteLine("\nEntered Details:");
+            Console.WriteLine("First Name: " + obj1.firstname);
+            Console.WriteLine("Last Name: " + obj1.lastname);
+            Console.WriteLine("Address: " + obj1.address);
+            Console.WriteLine("City: " + obj1.cityname);
+            Console.WriteLine("State: " + obj1.state);
+            Console.WriteLine("Phone Number: " + obj1.phonenumber);
+            Console.WriteLine("Zip Code: " + obj1.zipcode);
+            Console.WriteLine("Email: " + obj1.email);
             Console.ReadLine();
-        }
+        }     
         class AddressBook
         {
             public string firstname;
@@ -41,17 +59,7 @@ namespace Address_Book_System
             public string phonenumber;
             public string zipcode;
             public string email;
-            public void Address(string fname, string lname, string add, string city, string st, string pnumber, string zip, string eml)
-            {
-                firstname = fname;
-                lastname = lname;
-                address = add;
-                cityname = city;
-                state = st;
-                phonenumber = pnumber;
-                zipcode= zip;
-                email= eml;
-            }
+            
 
         }
     }
