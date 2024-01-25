@@ -17,8 +17,8 @@ namespace Address_Book_System
             obj1.address = "room no-624 malligai";
             obj1.cityname = "chennai";
             obj1.state = "Tamil Nadu";
-            obj1.phonenumber = 2513290657;
-            obj1.zipcode = 123456;
+            obj1.phonenumber = "2513290657";
+            obj1.zipcode = "123456";
             obj1.email = "abc@gmail.com";
 
             Console.WriteLine(obj1.firstname);
@@ -38,39 +38,18 @@ namespace Address_Book_System
             public string address;
             public string cityname;
             public string state;
-            public long phonenumber;
-            public long zipcode;
+            public string phonenumber;
+            public string zipcode;
             public string email;
-            public void Fname(string fname)
+            public void Address(string fname, string lname, string add, string city, string st, string pnumber, string zip, string eml)
             {
                 firstname = fname;
-            }
-            public void Lname(string lname) 
-            {
                 lastname = lname;
-            }
-            public void Address(string add)
-            {
                 address = add;
-            } 
-            public void City(string city)
-            {
                 cityname = city;
-            }
-            public void State(string st) 
-            {
                 state = st;
-            } 
-            public void Phonenumber(long pnumber) 
-            {
-                phonenumber= pnumber;
-            }
-            public void Zip(long zip)
-            {
+                phonenumber = pnumber;
                 zipcode= zip;
-            }
-            public void Emial(string eml)
-            {
                 email= eml;
             }
 
