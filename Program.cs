@@ -6,37 +6,65 @@ using System.Threading.Tasks;
 
 namespace Address_Book_System
 {
+    class Contact
+    {
+        public string firstname;
+        public string lastname;
+        public long phonenumber;
+        public string email;
+    }
+    class AddressBook: Contact
+    {
+        public string address;
+        public string cityname;
+        public string state;
+        public long zipcode;
+        public AddressBook(string fname, string lname, string add, string city, string st, long pnumber, long zip, string eml)
+        {
+            firstname = fname;
+            lastname = lname;
+            address = add;
+            cityname = city;
+            state = st;
+            phonenumber = pnumber;
+            zipcode = zip;
+            email = eml;
+
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book Program");
 
-            AddressBook obj1 = new AddressBook();
 
             Console.Write("Enter First Name: ");
-            obj1.firstname = Console.ReadLine();
+            string firstname = Console.ReadLine();
 
             Console.Write("Enter Last Name: ");
-            obj1.lastname = Console.ReadLine();
+            string lastname = Console.ReadLine();
 
             Console.Write("Enter Address: ");
-            obj1.address = Console.ReadLine();
+            string address = Console.ReadLine();
 
             Console.Write("Enter City: ");
-            obj1.cityname = Console.ReadLine();
+            string cityname = Console.ReadLine();
 
             Console.Write("Enter State: ");
-            obj1.state = Console.ReadLine();
+            string state = Console.ReadLine();
 
             Console.Write("Enter Phone Number: ");
-            obj1.phonenumber = Console.ReadLine();
+            long  phonenumber = Convert.ToInt64(Console.ReadLine());
 
             Console.Write("Enter Zip Code: ");
-            obj1.zipcode = Console.ReadLine();
+            long zipcode = Convert.ToInt64(Console.ReadLine());
 
             Console.Write("Enter Email: ");
-            obj1.email = Console.ReadLine();
+            string email = Console.ReadLine();
+
+            AddressBook obj1 = new AddressBook (firstname, lastname, address, cityname, state, phonenumber, zipcode, email);
 
             Console.WriteLine("\nEntered Details:");
             Console.WriteLine("First Name: " + obj1.firstname);
@@ -47,20 +75,9 @@ namespace Address_Book_System
             Console.WriteLine("Phone Number: " + obj1.phonenumber);
             Console.WriteLine("Zip Code: " + obj1.zipcode);
             Console.WriteLine("Email: " + obj1.email);
-            Console.ReadLine();
-        }     
-        class AddressBook
-        {
-            public string firstname;
-            public string lastname;
-            public string address;
-            public string cityname;
-            public string state;
-            public string phonenumber;
-            public string zipcode;
-            public string email;
-            
 
+            Console.ReadLine();
         }
     }
 }
+
