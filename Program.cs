@@ -25,7 +25,7 @@ namespace Address_Book_System
             public string phonenumber;
             public string zipcode;
             public string email;
-            public void Address(string fname, string lname, string addr, string city, string st, string pnumber, string zip, string eml)
+            public AddressBook(string fname, string lname, string addr, string city, string st, string pnumber, string zip, string eml)
             {
                 firstname = fname;
                 lastname = lname;
