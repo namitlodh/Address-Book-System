@@ -15,13 +15,13 @@ namespace Address_Book_System
         public long phonenumber;
         public string email;
     }
-    class AddressBook: Contact
+    class AddressBook : Contact
     {
         public string address;
         public string cityname;
         public string state;
         public long zipcode;
-      
+
         public void Add_details()
         {
             Console.Write("Enter First Name: ");
@@ -60,7 +60,7 @@ namespace Address_Book_System
             Console.WriteLine($"State : {this.state}");
             Console.WriteLine($"ZipCode : {this.zipcode}");
         }
-        public void Editted_Contact(List<AddressBook> contact ,string name)
+        public void Editted_Contact(List<AddressBook> contact, string name)
         {
             int flag = 0, n, found = 0;
             for (int i = 0; i < contact.Count; i++)
@@ -135,7 +135,39 @@ namespace Address_Book_System
             }
         }
 
+
+
+        public void Delete(List<AddressBook> contact, string name)
+        {
+            int found = 0;
+            for (int i = 0; i < contact.Count; i++)
+            {
+                if (contact[i].firstname == name)
+                {
+                    found = 1;
+                    Console.WriteLine($"Are you sure of deleteing {name}\'s contact (Y/N)");
+                    char ch = Convert.ToChar(Console.ReadLine());
+                    if (ch == 'Y' || ch == 'y')
+                    {
+                        contact.Remove(contact[i]);
+                        Console.WriteLine("Contact is Deleted ...");
+                        Thread.Sleep(2000);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Contact Not Deleted");
+                        Thread.Sleep(2000);
+                    }
+                }
+                if (found == 0)
+                {
+                    Console.WriteLine($"The contact with the name '{name}' is not found in the contact list.");
+                    Thread.Sleep(2000);
+                }
+            }
+        }
     }
+
 
 
     internal class Program
@@ -149,7 +181,7 @@ namespace Address_Book_System
             do
             {
                 Console.WriteLine("Enter an Option to perform : ");
-                Console.WriteLine("1. Add Details\n2. Display Details\n3. Edit a Contact\n4. Exit");
+                Console.WriteLine("1. Add Details\n2. Display Details\n3. Edit a Contact\n4. Delete a Contact\n5. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -177,6 +209,13 @@ namespace Address_Book_System
                         obj1.Editted_Contact(list, name);
                         break;
                     case 4:
+                        Console.Clear();
+                        Console.WriteLine("Enter name for deleting the contact\n");
+                        string deleteName = Console.ReadLine();
+                        obj1.Delete(list, deleteName);
+                        break;
+
+                    case 5:
                         Console.Clear();
                         Console.WriteLine("Exited");
                         flag = 1;
