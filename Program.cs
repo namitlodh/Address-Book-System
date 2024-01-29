@@ -268,6 +268,7 @@ namespace Address_Book_System
                         Console.WriteLine("Add the person name");
                         string name= Console.ReadLine();
                         user.AddPerson(name);
+                        Console.WriteLine("Person added successfully");
                         Thread.Sleep(2000);
                         Console.Clear();
                         break;
