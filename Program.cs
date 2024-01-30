@@ -25,43 +25,56 @@ namespace Address_Book_System
 
         public string Firstname
         {
-            get { return firstname; }
-            set { firstname = value; }
+            get;
+            set;
         }
         public string Lastname
         {
-            get { return lastname; }
-            set { lastname = value; }
+            get;
+            set;
         }
         public string Address
         {
-            get { return address; }
-            set { address = value; }
+            get;
+            set;
         }
         public string City
         {
-            get { return city; }
-            set { city = value; }
+            get;
+            set;
         }
         public string State
         {
-            get { return state; }
-            set { state = value; }
+            get;
+            set;
         }
         public string Phonenumber
         {
-            get { return phonenumber; }
-            set { phonenumber = value; }
+            get;
+            set;
         }
         public string Email
         {
-            get { return email; }
-            set { email = value; }
+            get;
+            set;
         }
         public string Zipcode
         {
-            get { return zipcode; }
-            set { zipcode = value; }
+            get;
+            set;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Contact other = (Contact)obj;
+            return Firstname.Equals(other.Firstname, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public override int GetHashCode()
+        {
+            return Firstname.GetHashCode();
         }
     }
     class AddressBook
@@ -71,6 +84,13 @@ namespace Address_Book_System
         {
             Console.WriteLine("Enter the first name: ");
             string firstname = Console.ReadLine();
+            if (contacts.Any(c => c.Equals(new Contact { Firstname = firstname })))
+            {
+                Console.WriteLine($"Duplicate entry for {firstname}. Person already exists in the Address Book.");
+                Thread.Sleep(4000);
+                Console.Clear();
+                return;
+            }
             Console.WriteLine("Enter the last name: ");
             string lastname = Console.ReadLine();
             Console.WriteLine("Enter the address: ");
@@ -115,6 +135,7 @@ namespace Address_Book_System
                 Console.WriteLine($"Phone: {contact.Phonenumber}");
                 Console.WriteLine($"Email: {contact.Email}");
                 Console.WriteLine($"Zipcode: {contact.Zipcode}");
+                Console.WriteLine();
             }
         }
         public void Editted_Contact(string name)
@@ -230,7 +251,15 @@ namespace Address_Book_System
         public void AddPerson(string name)
         {
             AddressBook book = new AddressBook();
-            dict.Add(name, book);
+            if (!dict.ContainsKey(name))
+            {
+                dict.Add(name, book);
+                Console.WriteLine("Person added successfully");
+            }
+            else
+            {
+                Console.WriteLine($"{name} already exist");
+            }
         }
 
         public void DisplayPerson()
@@ -268,7 +297,7 @@ namespace Address_Book_System
                         Console.WriteLine("Add the person name");
                         string name= Console.ReadLine();
                         user.AddPerson(name);
-                        Console.WriteLine("Person added successfully");
+                        
                         Thread.Sleep(2000);
                         Console.Clear();
                         break;
