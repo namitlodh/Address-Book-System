@@ -22,7 +22,7 @@ namespace Address_Book_System
             do
             {
                 Console.WriteLine("Enter an Option to perform : ");
-                Console.WriteLine("1. Add a person\n2. DisplayPerson\n3. Add person details in address book\n4. Search by Name\n5. Exit");
+                Console.WriteLine("1. Add a person\n2. DisplayPerson\n3. Add person details in address book\n4. Search by Name\n5. Search by City\n6. Search by State\n7. Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -110,6 +110,25 @@ namespace Address_Book_System
                         break;
                     case 5:
                         Console.Clear();
+                        Console.WriteLine("Enter the city to search: ");
+                        string searchCity = Console.ReadLine();
+                        var cityResults = user.SearchPersonsInCity(searchCity);
+                        DisplaySearchResults(cityResults);
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        Console.WriteLine("Enter the state to search: ");
+                        string searchState = Console.ReadLine();
+                        var stateResults = user.SearchPersonsInState(searchState);
+                        DisplaySearchResults(stateResults);
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        break;
+
+                    case 7:
+                        Console.Clear();
                         Console.WriteLine("Exited");
                         f = 1;
                         break;
@@ -125,6 +144,29 @@ namespace Address_Book_System
                 { 
                     Console.WriteLine($"City: {contact.City}");
                     Console.WriteLine($"State: {contact.State}");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("No matching contacts found.");
+            }
+        }
+        static void DisplaySearchResults(List<Contact> results)
+        {
+            if (results.Any())
+            {
+                Console.WriteLine("Search Results:");
+                foreach (var contact in results)
+                {
+                    Console.WriteLine($"First Name: {contact.Firstname}");
+                    Console.WriteLine($"Last Name: {contact.Lastname}");
+                    Console.WriteLine($"Address: {contact.Address}");
+                    Console.WriteLine($"City: {contact.City}");
+                    Console.WriteLine($"State: {contact.State}");
+                    Console.WriteLine($"Phone: {contact.Phonenumber}");
+                    Console.WriteLine($"Email: {contact.Email}");
+                    Console.WriteLine($"Zipcode: {contact.Zipcode}");
                     Console.WriteLine();
                 }
             }
