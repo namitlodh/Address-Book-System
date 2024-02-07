@@ -31,7 +31,6 @@ namespace Address_Book_System
                         Console.WriteLine("Add the person name");
                         string name = Console.ReadLine();
                         user.AddPerson(name);
-
                         Thread.Sleep(2000);
                         Console.Clear();
                         break;
@@ -67,7 +66,7 @@ namespace Address_Book_System
                                         Console.Clear();
                                         Console.WriteLine("Display Details\n");
                                         address.Display_details();
-                                        Thread.Sleep(2000);
+                                        Thread.Sleep(8000);
                                         break;
                                     case 3:
                                         Console.Clear();
@@ -128,7 +127,6 @@ namespace Address_Book_System
                         Thread.Sleep(4000);
                         Console.Clear();
                         break;
-
                     case 7:
                         Console.Clear();
                         Console.WriteLine("Exited");
