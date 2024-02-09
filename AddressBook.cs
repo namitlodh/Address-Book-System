@@ -54,17 +54,17 @@ namespace Address_Book_System
             Console.WriteLine("Enter the email: ");
             string email = Console.ReadLine();
             Console.WriteLine("Enter the Zipcode: ");
-            string zipcode = Console.ReadLine();
+            long zipcode = Convert.ToInt64(Console.ReadLine());
             int fl= 0;
             do
             {
-                if (!Regex.IsMatch(zipcode, @"^[4-5]\d{5}$"))
+                if (!Regex.IsMatch(zipcode.ToString(), @"^[4-5]\d{5}$"))
                 {
                     Console.WriteLine("Invalid zip code format. Please enter a valid zip code.");
                     string newzipcode = Console.ReadLine();
                     if (Regex.IsMatch(newzipcode, @"^[4-5]\d{5}$"))
                     {
-                        zipcode = newzipcode;
+                        zipcode = Convert.ToInt64(newzipcode);
                         fl = 1;
                     }
                 }
@@ -90,11 +90,14 @@ namespace Address_Book_System
             Thread.Sleep(4000);
             Console.Clear();
         }
+        public List<Contact> GetAllContacts()
+        {
+            return contacts;
+        }
         public void SortContactsByName()
         {
             contacts.Sort((x,y) => x.Firstname.CompareTo(y.Firstname));
         }
-
         public void Display_details()
         {
             SortContactsByName();
@@ -111,6 +114,7 @@ namespace Address_Book_System
                 Console.WriteLine();
             }
         }
+        
         public void Editted_Contact(string name)
         {
             Contact editContact = contacts.Find(contact => contact.Firstname == name);
@@ -166,7 +170,7 @@ namespace Address_Book_System
                         case 8:
                             Console.Clear();
                             Console.WriteLine("Enter New ZipCode : ");
-                            editContact.Zipcode = Console.ReadLine();
+                            editContact.Zipcode = Convert.ToInt64(Console.ReadLine());
                             break;
                         case 9:
                             Console.WriteLine("Edited..");

@@ -21,7 +21,7 @@ namespace Address_Book_System
         private string city;
         private string state;
         private string phonenumber;
-        private string zipcode;
+        private long zipcode;
         private string email;
 
         public string Firstname
@@ -59,7 +59,7 @@ namespace Address_Book_System
             get { return email; }
             set { email = value; }
         }
-        public string Zipcode
+        public long Zipcode
         {
             get { return zipcode; }
             set { zipcode = value; }
@@ -76,6 +76,17 @@ namespace Address_Book_System
         public override int GetHashCode()
         {
             return Firstname.GetHashCode();
+        }
+        public Contact()
+        {
+            this.Firstname = firstname;
+            this.Lastname = lastname;
+            this.Address = address;
+            this.City = city;
+            this.State = state;
+            this.Zipcode = zipcode;
+            this.Phonenumber = phonenumber;
+            this.Email = email;
         }
     }
 }
