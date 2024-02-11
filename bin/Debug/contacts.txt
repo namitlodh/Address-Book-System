@@ -1,0 +1,9 @@
+First Name: namit
+Last Name: lodh
+Address: potheri
+City: chennai
+State: tamil nadu
+Phone: 7894578235
+Email: nl8032@srmist.edu.in
+Zipcode: 403203
+
