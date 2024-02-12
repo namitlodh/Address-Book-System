@@ -5,3 +5,22 @@ C:\Users\dell\source\repos\Address Book System\Address Book System\obj\Debug\Add
 C:\Users\dell\source\repos\Address Book System\Address Book System\obj\Debug\Address Book System.csproj.CoreCompileInputs.cache
 C:\Users\dell\source\repos\Address Book System\Address Book System\obj\Debug\Address Book System.exe
 C:\Users\dell\source\repos\Address Book System\Address Book System\obj\Debug\Address Book System.pdb
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\CsvHelper.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Buffers.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Linq.Async.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Memory.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\CsvHelper.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Buffers.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Linq.Async.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Memory.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\dell\source\repos\Address Book System\Address Book System\obj\Debug\Address Book System.csproj.CopyComplete

@@ -2,8 +2,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using CsvHelper;
+using CsvHelper.Configuration.Attributes;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
@@ -11,6 +14,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static Address_Book_System.Contact;
 
 namespace Address_Book_System
 {
@@ -24,7 +28,7 @@ namespace Address_Book_System
             do
             {
                 Console.WriteLine("Enter an Option to perform : ");
-                Console.WriteLine("1. Add a person\n2. DisplayPerson\n3. Add person details in address book\n4. Search by Name\n5. Search by City\n6. Search by State\n7. Sort according to your choice\n8. Read\n9. Write\n10. Exit");
+                Console.WriteLine("1. Add a person\n2. DisplayPerson\n3. Add person details in address book\n4. Search by Name\n5. Search by City\n6. Search by State\n7. Sort according to your choice\n8. Read\n9. Write\n10. Read csv\n11. Write csv\n12. Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -186,6 +190,18 @@ namespace Address_Book_System
                         break;
                     case 10:
                         Console.Clear();
+                        LoadAddressBookcsv();
+                        Thread.Sleep(4000);
+                        Console.Clear();
+                        break;
+                    case 11:
+                        Console.Clear();
+                        SaveAddressBookcsv(user.GetPersons());
+                        Thread.Sleep(4000);
+                        Console.Clear();
+                        break;
+                    case 12:
+                        Console.Clear();
                         Console.WriteLine("Exited");
                         f = 1;
                         break;
@@ -277,7 +293,7 @@ namespace Address_Book_System
 
                     while ((line = reader.ReadLine()) != null)
                     {
-                        string[] data = line.Split(','); 
+                        string[] data = line.Split(' '); 
                         if (data.Length >= 8)
                         {
                             Contact contact = new Contact
@@ -307,5 +323,55 @@ namespace Address_Book_System
             }
             return addressBooks;
         }
+        static void SaveAddressBookcsv(Dictionary<string, AddressBook> addressBooks)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(@"C:\Users\dell\source\repos\Address Book System\Address Book System\contacts.csv"))
+                using (CsvWriter csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    foreach (var entry in addressBooks)
+                    {
+                        csv.WriteField($"Address Book for: {entry.Key}");
+                        csv.NextRecord();
+                        csv.WriteRecords(entry.Value.GetAllContacts());
+                        csv.NextRecord();
+                    }
+                }
+                Console.WriteLine("Address book data has been saved to 'contacts.csv'.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occurred while saving address book data: {ex.Message}");
+            }
+        }
+        static public void LoadAddressBookcsv()
+        {
+            try
+            {
+                using (StreamReader reader = new StreamReader(@"C:\Users\dell\source\repos\Address Book System\Address Book System\contacts.csv"))
+                using (CsvReader csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    while (csv.Read())
+                    {
+                        string firstField = csv.GetField(0);
+                        if (firstField.StartsWith("Address Book for:"))
+                        {
+                            string addressBookName = firstField.Replace("Address Book for: ", "");
+                            Console.WriteLine($"Address Book: {addressBookName}");
+                            continue; 
+                        }
+                        var record = csv.GetRecord<Contact>();
+                        Console.WriteLine(record.Firstname + " " + record.Lastname + " " + record.Phonenumber + " " + record.Address + " " + record.City + " " + record.State + " " + record.Email + " " + record.Zipcode);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error occurred while loading address book data: {ex.Message}");
+            }
+        }
+
+
     }
 }

@@ -8,4 +8,33 @@ Phone: 7894578235
 Email: nl8032@srmist.edu.in
 Zipcode: 403203
 
+First Name: siddhant
+Last Name: mandal
+Address: potheri
+City: bangalore
+State: karnataka
+Phone: 8989898989
+Email: sm2989@srmist.edu.in
+Zipcode: 522113
+
+
+Address Book for: arun
+First Name: arun
+Last Name: karthik
+Address: potheri
+City: vellore
+State: tamil nadu
+Phone: 6789894551
+Email: av0091@srmist.edu.in
+Zipcode: 411223
+
+First Name: kotha
+Last Name: narasimha
+Address: potheri
+City: guntur
+State: andhra pradesh
+Phone: 7860981234
+Email: kn5678@srmist.edu.in
+Zipcode: 434312
+
 
